@@ -13,6 +13,18 @@ document.getElementById("togglePassword").addEventListener("change", function ()
 
 });
 
+document.getElementById("password").addEventListener("input", function () {
+    const password = this.value;
+    const strengthIndicator = document.getElementById("strength");
+    const strengthBar = document.getElementById("strengthBar");
+    const strength = this.checkPasswordStrength(password);
+
+    strengthIndicator.textContent = strength.message;
+    strengthIndicator.style.color = strength.color;
+    strengthBar.value = strength.score; // Tambahkan nilai pada progress bar
+});
+
+
 function checkPasswordStrength(password) {
     let score = 0;
 
