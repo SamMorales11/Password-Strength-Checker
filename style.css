@@ -1,0 +1,73 @@
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg,rgb(98, 24, 178) 0%,rgb(15, 40, 83) 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    width: 380px;
+    color: #333;
+}
+
+h1 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color:rgb(33, 62, 112);
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 40pxpx solid #ddd;
+    border-radius: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input:focus {
+    outline: none;
+    border-color:rgb(52, 77, 120);
+    box-shadow: 0 0 8px rgba(37, 117, 252, 0.5);
+}
+
+#strength {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dynamic Styles for Password Strength */
+#strength.strong {
+    background-color: #4caf50;
+    color: #fff;
+}
+
+#strength.medium {
+    background-color: #ff9800;
+    color: #fff;
+}
+
+#strength.weak {
+    background-color: #f44336;
+    color: #fff;
+}
+
+#strength.very-weak {
+    background-color: #9c27b0;
+    color: #fff;
+}
