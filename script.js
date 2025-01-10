@@ -24,6 +24,11 @@ document.getElementById("password").addEventListener("input", function () {
     strengthBar.value = strength.score; // Tambahkan nilai pada progress bar
 });
 
+document.getElementById("generatePassword").addEventListener("click", function () {
+    const generatePassword = generateRandomPassword(12);//Panjang deafult 12 karakter
+    document.getElementById("password").value = generatePassword;
+    document.getElementById("Password").dispatchEvent(new Event("input"));
+});
 
 function checkPasswordStrength(password) {
     let score = 0;
@@ -41,6 +46,7 @@ function checkPasswordStrength(password) {
     const suggestionsDiv = document.getElementById("suggestions");
     suggestionsDiv.textContent = suggestions.length > 0 ? suggestions.join(" ") : "Your password is strong!";
 
+
     switch (score) {
         case 4:
             return { message: "Strong", color: "green" };
@@ -51,4 +57,13 @@ function checkPasswordStrength(password) {
         default:
             return { message: "Very Weak", color: "darkred" };
     }
+}
+
+function generateRandomPassword(length) {
+    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()";
+    let password = "";
+    for (let i = 0; i < length; i++) {
+        password += charset.charAt(Math.floor(Math.random() * charset.length));
+    }
+    return password;
 }
