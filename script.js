@@ -27,11 +27,19 @@ document.getElementById("password").addEventListener("input", function () {
 
 function checkPasswordStrength(password) {
     let score = 0;
+    const suggestions = [];
 
     if (password.length >= 8) score++;
+    else suggestions.push ("Increase length to at least 8 Characters");
     if (/[a-z]/.test(password) && /[A-Z]/.test(password)) score++;
+    else suggestions.push ("Use both uppercase and lowecase letters");
     if (/\d/.test(password)) score++;
+    else suggestions.push ("Include at least one number");
     if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) score++;
+    else suggestions.push ("Include at least one special character");
+
+    const suggestionsDiv = document.getElementById("suggestions");
+    suggestionsDiv.textContent = suggestions.length > 0 ? suggestions.join(" ") : "Your password is strong!";
 
     switch (score) {
         case 4:
